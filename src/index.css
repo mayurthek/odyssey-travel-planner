@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  body {
+    @apply h-full bg-stone-50 text-stone-900 font-sans antialiased overflow-hidden;
+  }
+}
+
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(28, 25, 23, 0.1);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(28, 25, 23, 0.25);
+}
+
+/* Leaflet Style Overrides to match Minimal Apple Maps style */
+.leaflet-container {
+  background-color: #FAF9F6 !important;
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-bar {
+  border: 1px solid rgba(28, 25, 23, 0.08) !important;
+  box-shadow: 0 2px 8px rgba(28, 25, 23, 0.05) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.leaflet-bar a {
+  background-color: #ffffff !important;
+  color: #2D2D2D !important;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.06) !important;
+  transition: all 0.2s ease;
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+}
+
+.leaflet-bar a:hover {
+  background-color: #FAF9F6 !important;
+  color: #1C1917 !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(250, 249, 246, 0.75) !important;
+  backdrop-filter: blur(8px);
+  color: #8C8275 !important;
+  font-size: 10px !important;
+  border-top-left-radius: 6px;
+  border-left: 1px solid rgba(28, 25, 23, 0.06);
+  border-top: 1px solid rgba(28, 25, 23, 0.06);
+}
+
+/* Custom Marker Styling classes */
+.custom-map-marker {
+  background: transparent;
+  border: none;
+}
+
+.custom-marker-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #1C1917;
+  color: #FAF9F6;
+  border-radius: 50%;
+  border: 2px solid #FAF9F6;
+  box-shadow: 0 4px 12px rgba(28, 25, 23, 0.2);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.custom-marker-pin:hover {
+  transform: scale(1.15) translateY(-2px);
+  background: #1B2A4A;
+  box-shadow: 0 6px 16px rgba(27, 42, 74, 0.35);
+}
+
+.custom-marker-pin.active {
+  background: #1B2A4A;
+  border-color: #EAE6DF;
+  transform: scale(1.2) translateY(-2px);
+}
+
+/* Dragging utility animations */
+.drag-ghost {
+  opacity: 0.4;
+  background-color: rgba(231, 229, 228, 0.4);
+  border: 1px dashed rgba(120, 113, 108, 0.4);
+}
